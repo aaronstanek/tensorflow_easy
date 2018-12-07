@@ -1,9 +1,8 @@
 import tensorflow as tf
 from tensorflow.keras.models import model_from_json as mfj
+from .build import build
 
-def load(modelfile, weightsfile):
-    with open(modelfile, "r") as file:
-        jm = file.read()
-    model = mfj(jm)
-    model.load_weights(weightsfile)
+def load(filename, arr):
+    model = build(arr)
+    model.load_weights(filename)
     return model

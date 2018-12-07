@@ -30,8 +30,12 @@ single_predicted_answer = te.predict_single(model,x[2])
 # predicts the output for [1,0]
 # which should be 1
 
-# it saves into 2 files, one json, one h5
-# the json holds the structure of the network, the h5 holds the weights
+te.save("./myfile",model)
+# saves the model
+# first argument is the file where to save it
+# second argument if the model itself
 
-te.save("nn.json","weights.h5",model)
-loaded_model = te.load("nn.json","weights.h5")
+loaded_model = te.load("./myfile",[2,4,2])
+# loads a model from a file
+# first argument is the file to load
+# second argument is the shape and size of the neural network
